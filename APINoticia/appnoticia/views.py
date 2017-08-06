@@ -11,6 +11,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from django.http import Http404
 from rest_framework import permissions
+from django.http import HttpResponse, JsonResponse
 
 # Create your views here.
 
@@ -19,15 +20,18 @@ class NoticiaList(generics.ListCreateAPIView):
     queryset = Noticia.objects.all()
     serializer_class = NoticiaSerializer
 
-class Helloworld(generics.ListCreateAPIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-    queryset = Helloworld.objects.all()
-    serializer_class = HelloworldSerializer
+class HelloworldShow(APIView):
+    def get(self, request, format=None):
+        hello = Helloworld.objects.get(pk=1)
+        serializer = HelloworldSerializer(hello)
+        return JsonResponse(serializer.data)
 
-class Nohelloworld(generics.ListCreateAPIView):
-    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-    queryset = Nohelloworld.objects.all()
-    serializer_class = NohelloworldSerializer
+
+class NohelloworldShow(APIView):
+    def get(self, request, format=None):
+        hello = Nohelloworld.objects.get(pk=1)
+        serializer = NohelloworldSerializer(hello)
+        return JsonResponse(serializer.data)
 
 class NoticiaDetail(generics.RetrieveAPIView):
     queryset = Noticia.objects.all()

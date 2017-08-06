@@ -14,8 +14,8 @@ urlpatterns = [
     url('^noticia/(?P<pk>[0-9]+)/$', views.NoticiaDetail.as_view()),
     url('^login/',views.Login.as_view()),
     url('^user/', views.UserDetail.as_view()),
-    url('^helloworld/', views.Helloworld.as_view()),
-    url('^nohelloworld/', views.Nohelloworld.as_view()),
+    url('^helloworld/', views.HelloworldShow.as_view()),
+    url('^nohelloworld/', views.NohelloworldShow.as_view()),
     url(r'^$', schema_view),
 
 
