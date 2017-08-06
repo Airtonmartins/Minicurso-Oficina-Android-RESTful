@@ -1,4 +1,4 @@
-package com.qunews.psd.rsi.noticiaapp;
+package com.qunews.psd.rsi.noticiaapp.gui;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.qunews.psd.rsi.noticiaapp.ClientAPI.ConnectiontoAPI;
 import com.qunews.psd.rsi.noticiaapp.ClientAPI.NoticiaAPI;
+import com.qunews.psd.rsi.noticiaapp.R;
 import com.qunews.psd.rsi.noticiaapp.dominio.Helloworld;
 
 import retrofit.Call;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         contexto = this;
         txtHello = (TextView) findViewById(R.id.txtHello);
-        Call<Helloworld> call = noticiaAPI.getHelloworld("helloworld");
+        Call<Helloworld> call = noticiaAPI.getHelloworld("nohelloworld");
         call.enqueue(new Callback<Helloworld>() {
             @Override
             public void onResponse(Response<Helloworld> response, Retrofit retrofit) {

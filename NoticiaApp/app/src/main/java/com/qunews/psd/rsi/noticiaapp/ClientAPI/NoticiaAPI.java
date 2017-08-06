@@ -1,11 +1,14 @@
 package com.qunews.psd.rsi.noticiaapp.ClientAPI;
 
 import com.qunews.psd.rsi.noticiaapp.dominio.Helloworld;
+import com.qunews.psd.rsi.noticiaapp.dominio.Usuario;
 
 import java.util.List;
 
 import retrofit.Call;
+import retrofit.http.Body;
 import retrofit.http.GET;
+import retrofit.http.POST;
 import retrofit.http.Path;
 
 /**
@@ -16,4 +19,7 @@ public interface NoticiaAPI {
 
     @GET("{ctrlHello}")
     Call<Helloworld> getHelloworld(@Path("ctrlHello") String ctrl);
+
+    @POST("api-register/")
+    Call<Usuario> saveUsuario(@Body Usuario usuario);
 }
