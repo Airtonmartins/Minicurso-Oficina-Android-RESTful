@@ -3,6 +3,10 @@ package com.qunews.psd.rsi.noticiaapp.gui;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -13,6 +17,8 @@ import com.qunews.psd.rsi.noticiaapp.ClientAPI.NoticiaAPI;
 import com.qunews.psd.rsi.noticiaapp.R;
 import com.qunews.psd.rsi.noticiaapp.dominio.Helloworld;
 import com.qunews.psd.rsi.noticiaapp.dominio.Noticia;
+import com.qunews.psd.rsi.noticiaapp.dominio.Sessao;
+import com.qunews.psd.rsi.noticiaapp.dominio.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +35,16 @@ public class MainActivity extends AppCompatActivity{
     private List<Noticia> noticias;
     ConnectiontoAPI connectiontoAPI = new ConnectiontoAPI();
     NoticiaAPI noticiaAPI = connectiontoAPI.CreateRetrofit();
+    private Usuario usuario = Sessao.getInstancia().getUsuarioLogado();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         contexto = this;
+        Toast.makeText(MainActivity.this, usuario.getUsername(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this, usuario.getToken(), Toast.LENGTH_SHORT).show();
+
 
         listaNoticias = (ListView) findViewById(R.id.lista);
         noticias = new ArrayList<>();
@@ -42,6 +52,30 @@ public class MainActivity extends AppCompatActivity{
                 android.R.layout.simple_list_item_1,noticias);
         listaNoticias.setAdapter(adapter);
         retornaNoticia();
+
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.item_update:
+                Toast.makeText(MainActivity.this, "Update", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.item_sair:
+                Toast.makeText(MainActivity.this, "Saindo", Toast.LENGTH_SHORT).show();
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
 
     }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.qunews.psd.rsi.noticiaapp.ClientAPI.ConnectiontoAPI;
 import com.qunews.psd.rsi.noticiaapp.ClientAPI.NoticiaAPI;
 import com.qunews.psd.rsi.noticiaapp.R;
+import com.qunews.psd.rsi.noticiaapp.dominio.Sessao;
 import com.qunews.psd.rsi.noticiaapp.dominio.Usuario;
 
 import retrofit.Call;
@@ -60,6 +61,8 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Response<Usuario> response, Retrofit retrofit) {
                             Usuario usuario = response.body();
                             if(response.isSuccess()){
+                                Sessao sessao = Sessao.getInstancia();
+                                sessao.setUsuarioLogado(usuario);
                                 Intent intentGoMain = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intentGoMain);
                                 Toast.makeText(LoginActivity.this, "Bem vindo "+usuario.getUsername() + "Token "+usuario.getToken(), Toast.LENGTH_SHORT).show();
