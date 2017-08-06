@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'appnoticia.apps.AppnoticiaConfig',
     'rest_framework.authtoken',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [

@@ -2,9 +2,10 @@ from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from appnoticia import views
 from appnoticia.views import *
-
+from rest_framework_swagger.views import get_swagger_view
 from rest_framework.authtoken import views as authviews
 
+schema_view = get_swagger_view(title='Noticia API')
 
 urlpatterns = [
 
@@ -15,6 +16,7 @@ urlpatterns = [
     url('^user/', views.UserDetail.as_view()),
     url('^helloworld/', views.Helloworld.as_view()),
     url('^nohelloworld/', views.Nohelloworld.as_view()),
+    url(r'^$', schema_view),
 
 
 
