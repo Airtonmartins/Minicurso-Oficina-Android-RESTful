@@ -8,6 +8,7 @@ public class Usuario {
     private String username;
     private String password;
     private String email;
+    private String token;
 
     public Usuario(){}
 
@@ -40,5 +41,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
