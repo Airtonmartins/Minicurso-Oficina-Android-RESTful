@@ -1,6 +1,7 @@
 package com.qunews.psd.rsi.noticiaapp.ClientAPI;
 
 import com.qunews.psd.rsi.noticiaapp.dominio.Helloworld;
+import com.qunews.psd.rsi.noticiaapp.dominio.Noticia;
 import com.qunews.psd.rsi.noticiaapp.dominio.Usuario;
 
 import java.util.List;
@@ -29,6 +30,10 @@ public interface NoticiaAPI {
     @POST("login/")
     Call<Usuario> login(@Field("username") String username,
                         @Field("password") String password);
+
+    @GET("{ctrlCar}")
+    Call<List<Noticia>> getNoticia(@Path("ctrlCar") String ctrl);
+
 
 
 }
