@@ -1,6 +1,12 @@
 package com.qunews.psd.rsi.noticiaapp.ClientAPI;
 
+import com.qunews.psd.rsi.noticiaapp.dominio.Helloworld;
+
 import java.util.List;
+
+import retrofit.Call;
+import retrofit.http.GET;
+import retrofit.http.Path;
 
 /**
  * Created by airton on 05/08/17.
@@ -8,6 +14,6 @@ import java.util.List;
 
 public interface NoticiaAPI {
 
-    @GET("{ctrlCar}")
-    Call<List<Tipo>> getTipo(@Path("ctrlCar") String ctrl);
+    @GET("{ctrlHello}")
+    Call<Helloworld> getHelloworld(@Path("ctrlHello") String ctrl);
 }
