@@ -8,6 +8,7 @@ import java.util.List;
 
 import retrofit.Call;
 import retrofit.http.Body;
+import retrofit.http.DELETE;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
@@ -25,6 +26,9 @@ public interface NoticiaAPI {
 
     @GET("{ctrlHello}")
     Call<Helloworld> getHelloworld(@Path("ctrlHello") String ctrl);
+
+    @DELETE("user/")
+    Call<Usuario> deleteUsuario(@Header("Authorization") String strtoken);
 
     @POST("api-register/")
     Call<Usuario> saveUsuario(@Body Usuario usuario);

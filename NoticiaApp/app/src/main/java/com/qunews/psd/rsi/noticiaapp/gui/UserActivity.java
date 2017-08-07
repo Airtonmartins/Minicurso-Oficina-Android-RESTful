@@ -1,6 +1,7 @@
 package com.qunews.psd.rsi.noticiaapp.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -50,6 +51,33 @@ public class UserActivity extends AppCompatActivity {
         editConfirmarSenha = (EditText) findViewById(R.id.edtConfirmarSenhaCadastroup);
         btnUpdate = (Button) findViewById(R.id.btnUpdateup);
         btnDelete = (Button) findViewById(R.id.btnDeleteup);
+
+        btnDelete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<Usuario> call = noticiaAPI.deleteUsuario(usuario.getToken());
+                call.enqueue(new Callback<Usuario>() {
+                    @Override
+                    public void onResponse(Response<Usuario> response, Retrofit retrofit) {
+                        Usuario u = response.body();
+                        if(response.isSuccess()){
+                            Toast.makeText(UserActivity.this, "Usuário excluido", Toast.LENGTH_SHORT).show();
+                            Intent intentGoMain = new Intent(UserActivity.this, LoginActivity.class);
+                            startActivity(intentGoMain);
+
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailure(Throwable t) {
+                        Toast.makeText(UserActivity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+            }
+        });
 
 
         btnUpdate.setOnClickListener(new View.OnClickListener() {
@@ -106,7 +134,12 @@ public class UserActivity extends AppCompatActivity {
 
             }
         });
+
+
     }
+
+
+
 
     public void validarAPI(Usuario usuario){
         if(usuario.getUsername() != null){
