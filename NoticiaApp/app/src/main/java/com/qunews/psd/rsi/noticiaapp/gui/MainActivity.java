@@ -1,6 +1,7 @@
 package com.qunews.psd.rsi.noticiaapp.gui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -68,6 +69,8 @@ public class MainActivity extends AppCompatActivity{
         switch (item.getItemId()){
             case R.id.item_update:
                 Toast.makeText(MainActivity.this, "Update", Toast.LENGTH_SHORT).show();
+                Intent intentGoMain = new Intent(MainActivity.this, UserActivity.class);
+                startActivity(intentGoMain);
                 return true;
             case R.id.item_sair:
                 Toast.makeText(MainActivity.this, "Saindo", Toast.LENGTH_SHORT).show();

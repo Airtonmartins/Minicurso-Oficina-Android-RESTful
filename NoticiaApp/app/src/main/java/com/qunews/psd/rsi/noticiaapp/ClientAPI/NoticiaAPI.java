@@ -11,7 +11,10 @@ import retrofit.http.Body;
 import retrofit.http.Field;
 import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
+import retrofit.http.Header;
+import retrofit.http.Headers;
 import retrofit.http.POST;
+import retrofit.http.PUT;
 import retrofit.http.Path;
 
 /**
@@ -25,6 +28,10 @@ public interface NoticiaAPI {
 
     @POST("api-register/")
     Call<Usuario> saveUsuario(@Body Usuario usuario);
+
+
+    @PUT("user/")
+    Call<Usuario> upUsuario(@Header("Authorization") String strtoken, @Body Usuario usuario);
 
     @FormUrlEncoded
     @POST("login/")

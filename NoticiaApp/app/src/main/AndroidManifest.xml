@@ -19,7 +19,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".gui.MainActivity" />
-        <activity android:name=".gui.CadastroActivity"></activity>
+        <activity android:name=".gui.CadastroActivity" />
+        <activity android:name=".gui.UserActivity"></activity>
     </application>
 
 </manifest>

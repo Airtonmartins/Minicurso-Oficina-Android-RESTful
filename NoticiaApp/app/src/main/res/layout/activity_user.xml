@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:orientation="vertical" >
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textColorHint="#000080"
+            android:background="@drawable/barra_de_texto"
+            android:id="@+id/edtLoginCadastroup"
+            android:layout_marginTop="20dp"
+            android:hint="Login"/>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edtLoginCadastroup"
+            android:singleLine="true"
+            android:textColorHint="#000080"
+            android:background="@drawable/barra_de_texto"
+            android:id="@+id/edtEmailup"
+            android:layout_marginTop="20dp"
+            android:hint="Email"/>
+
+
+
+        <EditText
+            android:layout_width="match_parent"
+            android:password="true"
+            android:layout_height="wrap_content"
+            android:textColorHint="#000080"
+            android:id="@+id/edtSenhaCadastroup"
+            android:singleLine="true"
+            android:background="@drawable/barra_de_texto"
+            android:layout_below="@id/edtLoginCadastroup"
+            android:layout_marginTop="20dp"
+            android:hint="Senha"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:password="true"
+            android:layout_height="wrap_content"
+            android:textColorHint="#000080"
+            android:id="@+id/edtConfirmarSenhaCadastroup"
+            android:background="@drawable/barra_de_texto"
+            android:singleLine="true"
+            android:layout_below="@id/edtSenhaCadastroup"
+            android:layout_marginTop="20dp"
+            android:hint="Repita a senha"/>
+
+
+
+
+        <Button
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Update"
+            android:background="@drawable/botao"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textColorHint="#000080"
+            android:id="@+id/btnUpdateup"/>
+
+        <Button
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Delete"
+            android:background="@drawable/botao"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:textColorHint="#000080"
+            android:id="@+id/btnDeleteup"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>
