@@ -26,12 +26,27 @@ class HelloworldShow(APIView):
         serializer = HelloworldSerializer(hello)
         return JsonResponse(serializer.data)
 
+    def post(self,request, format=None):
+        serializer = HelloworldSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
 
 class NohelloworldShow(APIView):
     def get(self, request, format=None):
         hello = Nohelloworld.objects.get(pk=1)
         serializer = NohelloworldSerializer(hello)
         return JsonResponse(serializer.data)
+
+    def post(self,request, format=None):
+        serializer = NohelloworldSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class NoticiaDetail(generics.RetrieveAPIView):
     queryset = Noticia.objects.all()
