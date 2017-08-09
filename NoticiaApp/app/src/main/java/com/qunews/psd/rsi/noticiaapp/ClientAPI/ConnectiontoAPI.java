@@ -10,7 +10,7 @@ import retrofit.Retrofit;
  */
 
 public class ConnectiontoAPI {
-    public static final String API = "http://10.0.3.2:8000/";
+    public static final String API = "https://apinoticiatic.herokuapp.com/";
 
     public NoticiaAPI CreateRetrofit() {
 

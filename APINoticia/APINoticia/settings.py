@@ -137,7 +137,7 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 MEDIA_ROOT = os.path.join(BASE_DIR)
 
-MEDIA_URL = '/qunew/'
+MEDIA_URL = '/APINoticia/'
 
 REST_FRAMEWORK = {
 

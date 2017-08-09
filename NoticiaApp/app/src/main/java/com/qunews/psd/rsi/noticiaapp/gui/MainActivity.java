@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity{
 
     public void retornaNoticia(){
 
-        Call<List<Noticia>> call = noticiaAPI.getNoticia("noticia");
+        Call<List<Noticia>> call = noticiaAPI.getNoticia();
         call.enqueue(new Callback<List<Noticia>>() {
             @Override
             public void onResponse(Response<List<Noticia>> response, Retrofit retrofit) {

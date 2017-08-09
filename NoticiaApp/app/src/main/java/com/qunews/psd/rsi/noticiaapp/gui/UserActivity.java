@@ -65,6 +65,7 @@ public class UserActivity extends AppCompatActivity {
                             Intent intentGoMain = new Intent(UserActivity.this, LoginActivity.class);
                             startActivity(intentGoMain);
 
+
                         }
 
                     }

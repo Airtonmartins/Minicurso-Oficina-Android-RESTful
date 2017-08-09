@@ -42,8 +42,8 @@ public interface NoticiaAPI {
     Call<Usuario> login(@Field("username") String username,
                         @Field("password") String password);
 
-    @GET("{ctrlCar}")
-    Call<List<Noticia>> getNoticia(@Path("ctrlCar") String ctrl);
+    @GET("noticia/")
+    Call<List<Noticia>> getNoticia();
 
 
 
