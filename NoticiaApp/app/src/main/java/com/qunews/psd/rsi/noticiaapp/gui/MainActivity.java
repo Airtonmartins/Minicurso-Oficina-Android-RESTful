@@ -49,9 +49,6 @@ public class MainActivity extends AppCompatActivity{
 
         listaNoticias = (ListView) findViewById(R.id.lista);
         noticias = new ArrayList<>();
-        ArrayAdapter<Noticia> adapter = new ArrayAdapter<Noticia>(this,
-                android.R.layout.simple_list_item_1,noticias);
-        listaNoticias.setAdapter(adapter);
         retornaNoticia();
 
 
@@ -93,6 +90,9 @@ public class MainActivity extends AppCompatActivity{
                 for(Noticia noti: n){
                     noticias.add(noti);
                 }
+                ArrayAdapter<Noticia> adapter = new ArrayAdapter<Noticia>(contexto,
+                        android.R.layout.simple_list_item_1,noticias);
+                listaNoticias.setAdapter(adapter);
 
             }
 
