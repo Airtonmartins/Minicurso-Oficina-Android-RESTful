@@ -17,7 +17,7 @@ def create_auth_token(sender, instance=None, created=False, **kwargs):
 class Noticia(models.Model):
     titulo = models.CharField(max_length=100)
     conteudo = models.CharField(max_length=1000)
-    image = models.ImageField(upload_to='Images/', default='Images/None/No-img.jpg')
+    image = models.URLField()
 
     def __str__(self):
         return self.titulo

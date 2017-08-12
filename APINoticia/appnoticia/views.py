@@ -17,6 +17,7 @@ from django.http import HttpResponse, JsonResponse
 
 
 class NoticiaList(generics.ListCreateAPIView):
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
     queryset = Noticia.objects.all()
     serializer_class = NoticiaSerializer
 

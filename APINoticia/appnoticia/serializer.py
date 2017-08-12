@@ -6,7 +6,7 @@ from appnoticia.models import *
 
 
 class NoticiaSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField(max_length=None, use_url=True)
+    image = serializers.URLField(max_length=None, allow_blank=False)
     class Meta:
         model = Noticia
         fields = ('id','titulo','conteudo','image')
